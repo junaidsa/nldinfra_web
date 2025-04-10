@@ -15,27 +15,27 @@
                         <thead>
                             <tr>
                                 <th>Sr</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Tags Line</th>
-                                <th>Type</th>
+                                <th>Project Name</th>
+                                <th>Title</th>
+                                <th>Discripation</th>
+                                {{-- u654900760_nldinfra
+                                u654900760_admin
+                                u8~zP2]B
+                                 --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($products as $p)
+                            @foreach ($projects as $p)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ @$p->name }}</td>
-                                    <td>{{ @$p->category->name }}</td>
-                                    <td>{{ @$p->price }}</td>
-                                    <td>{{ @$p->tags ?? 'N/A' }}</td>
-                                    <td>{{ @$p->type ?? 'N/A' }}</td>
+                                    <td>{{ @$p->project_name }}</td>
+                                    <td>{{ @$p->title }}</td>
+                                    <td>{{ @$p->discripation }}</td>
                                     <td>
-                                        <a href="{{ route('products.edit', $p->id) }}" class="edit-btn "><i
+                                        <a href="" class="edit-btn "><i
                                                 class="ti ti-pencil me-1"></i></a>
-                                        <a href="javascript:void(0) " class="delete-btn" name="{{ $p->name }}"
+                                        <a href="javascript:void(0) " class="delete-btn" name="{{ $p->project_name }}"
                                             id="{{ $p->id }}"><i class="ti ti-trash me-2"></i></a>
                                     </td>
                                 </tr>

@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Projects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectConcroller extends Controller
 {
+
+    public function index(){
+        $projects = Projects::get();
+        return view('projects.index',compact('projects'));
+    }
     public function create(){
         return view('projects.create');
     }
@@ -26,6 +32,7 @@ class ProjectConcroller extends Controller
             $targetDir = public_path('./files');
             $document->move($targetDir, $file);
             $project = Projects::create([
+                'user_id' => Auth::id(),
                 'project_name' => $request->project_name,
                 'title' => $request->title,
                 'video_url' => $request->video_url,

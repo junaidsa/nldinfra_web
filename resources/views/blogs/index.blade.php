@@ -4,8 +4,8 @@
         <!-- Responsive Datatable -->
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <h5>Products List</h5>
-                <div class="btn-container"><a href="{{ url('products/create') }}" class="btn btn-success">Create Product</a>
+                <h5>Blog List</h5>
+                <div class="btn-container"><a href="{{ url('blog/create') }}" class="btn btn-success">Create Blog</a>
                 </div>
             </div>
 
@@ -18,23 +18,27 @@
                                 <th>Name</th>
                                 <th>Short Description</th>
                                 <th>Description</th>
+                                <th>image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($products as $p)
+                            @foreach ($blog as $b)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ @$p->name }}</td>
-                                    <td>{{ @$p->category->name }}</td>
+                                    <td>{{ @Auth::user()->name }}</td>
+                                    <td>{{ @$b->short_description }}</td>
+                                    <td>{!! @$b->description !!}</td>
+                                    <td><img src="{{ asset('public/files/' . $b->image) }}" alt="Blog Image" width="70" height="70" class="rounded-circle"></td>
+
                                     <td>
-                                        <a href="{{ route('products.edit', $p->id) }}" class="edit-btn "><i
+                                        <a href="{{ route('blog.edit', $b->id) }}" class="edit-btn "><i
                                                 class="ti ti-pencil me-1"></i></a>
-                                        <a href="javascript:void(0) " class="delete-btn" name="{{ $p->name }}"
-                                            id="{{ $p->id }}"><i class="ti ti-trash me-2"></i></a>
+                                        <a href="javascript:void(0) " class="delete-btn" name="{{ $b->name }}"
+                                            id="{{ $b->id }}"><i class="ti ti-trash me-2"></i></a>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -74,7 +78,7 @@
                 if (result.value) {
                     // Make DELETE request via AJAX
                     $.ajax({
-                        url: "{{ url('/products') }}/" + id,
+                        url: "{{ url('/blog/delete') }}/" + id,
                         type: 'DELETE',
                         data: {
                             "_token": "{{ csrf_token() }}", // Ensure you pass the CSRF token
@@ -83,7 +87,7 @@
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Deleted!',
-                                text: 'Product has been deleted.',
+                                text: 'Blog has been deleted.',
                                 timer: 1500
                             }).then(function() {
                                 location.reload();

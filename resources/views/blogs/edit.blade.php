@@ -11,9 +11,50 @@
             <!-- Form controls -->
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <h5 class="card-header">Edit Product</h5>
+                    <h5 class="card-header">Edit Blog</h5>
                     <div class="card-body">
-                        <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('blog.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('POST')
+                            <div class="row g-3">
+                                <input type="hidden" value="{{ $blog->id }}" name="id" id="id">
+
+                                <div class="col-md-12">
+                                    <label class="form-label" for="image"> Image</label>
+                                    <input type="file" value="{{ $blog->image }}" id="image" name="image" class="form-control @error('image') is-invalid @enderror" />
+                                    @error('image')
+                                    <div class=" invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label " for="short_description">Short Discripation</label>
+                                    <textarea class="form-control @error('short_description') is-invalid @enderror" id="short_description" name="short_description" rows="5"
+                                        placeholder="Description">{{ $blog->short_description }}</textarea>
+                                        @error('short_description')
+                                    <div class=" invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label " for="description">Description</label>
+                                    <textarea class="form-control textarea @error('bolg_description') is-invalid @enderror" id="bolg_description" name="bolg_description" rows="5"
+                                        placeholder="Description">{!! $blog->description !!}</textarea>
+                                        @error('bolg_description')
+                                    <div class=" invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                </div>
+
+                                <div class="action-btns">
+                                    <button class="btn btn-label-primary me-3">
+                                        <span class="align-middle"> Back</span>
+                                    </button>
+                                    <button class="btn btn-primary">Update Blog</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        {{-- <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
@@ -90,7 +131,7 @@
                             <div class="row">
                                 <div class="col-md-4 mt-3"><button class="btn btn-primary d-grid w-50">Submit</button></div>
                             </div>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
             </div>

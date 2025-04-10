@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogConcroller;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Homecontroller;
 use App\Http\Controllers\ProjectConcroller;
 use App\Http\Controllers\TestimonialController;
@@ -17,9 +18,14 @@ Route::get('/',[Homecontroller::class,'home'])->name('home');
 Route::get('/project',[Homecontroller::class,'project'])->name('project');
 Route::get('/about',[Homecontroller::class,'about'])->name('about');
 Route::get('/blogs',[Homecontroller::class,'blogs'])->name('blogs');
-Route::get('/blogs',[BlogConcroller::class,'blogs'])->name('blog.index');
-Route::get('/blog/create',[BlogConcroller::class,'create'])->name('blog.create');
-Route::post('/blog/store',[BlogConcroller::class,'store'])->name('blog.store');
+Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
+Route::get('/blog/create',[BlogController::class,'create'])->name('blog.create');
+Route::post('/blog/store',[BlogController::class,'store'])->name('blog.store');
+Route::get('/blog/edit/{id}',[BlogController::class,'blogEdit'])->name('blog.edit');
+Route::post('/blog/update/{id}',[BlogController::class,'blogUpdate'])->name('blog.update');
+Route::delete('/blog/delete/{id}', [BlogController::class, 'Blogdestroy'])->name('blog.destroy');
+// Route::delete('/blog/delete/{id}', [BlogController::class, 'Blogdestroy'])->name('blog.destroy');
+
 Route::get('/contact',[Homecontroller::class,'contact'])->name('contact');
 
 Route::middleware('auth')->group(function () {

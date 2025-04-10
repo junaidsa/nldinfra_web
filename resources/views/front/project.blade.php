@@ -4,8 +4,8 @@
     <div class="about4-section-area sp6">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-7">
+                <div class="col-md-1"></div>
+                <div class="col-md-7 mb-5">
                     <div class="about4-header heading4">
                         <div class="space20"></div>
                         <h1 class="main-text">Experience the urban living <br> in <span style="color:#FFA513;">Premium
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="about-images4">
                         <div class="img1 reveal image-anime">
                             <img src="{{ asset('public') }}/front-assets/img/floors-images/Rectangle 57.png" alt="">
@@ -46,13 +46,13 @@
             </div>
             <div class="row align-items-center">
                 <!-- Image Column -->
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <img src="{{ asset('public') }}/front-assets/img/floors-images/Rectangle-61.png"
                         alt="3 BHK Luxury Floor" class="img-fluid rounded">
                 </div>
 
                 <!-- Text Column -->
-                <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <div class="col-md-6 mt-3 d-flex flex-column justify-content-center">
                     <h3 class="mb-2 wf-36">3 BHK Luxury Floor</h3>
                     <div class="space20"></div>
                     <p class="wf-24">
@@ -85,7 +85,7 @@
                 <p class="wf-24">Sophisticated Amenities for a Luxurious Living Experience</p>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in-up" data-aos-duration="800">
+                <div class="col-md-3 col-md-6" data-aos="zoom-in-up" data-aos-duration="800">
                     <div class="service-amenities-boxarea">
                         <div class="img1">
 
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="col-md-5 col-md-6" data-aos="zoom-in-up" data-aos-duration="1000">
                     <div class="service-amenities-boxarea">
                         <div class="img1">
                             <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/cabana.png"
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in-up" data-aos-duration="1200">
+                <div class="col-md-4 col-md-6" data-aos="zoom-in-up" data-aos-duration="1200">
                     <div class="service-amenities-boxarea">
                         <div class="img1">
                             <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/kids play area.png"
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in-up" data-aos-duration="800">
+                <div class="col-md-4 col-md-6" data-aos="zoom-in-up" data-aos-duration="800">
                     <div class="service-amenities-boxarea">
                         <div class="img1">
                             <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/amphiteathre.png"
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="col-md-5 col-md-6" data-aos="zoom-in-up" data-aos-duration="1000">
                     <div class="service-amenities-boxarea">
                         <div class="img1">
                             <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/gym.png" alt="">
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in-up" data-aos-duration="1200">
+                <div class="col-md-3 col-md-6" data-aos="zoom-in-up" data-aos-duration="1200">
                     <div class="service-amenities-boxarea">
                         <div class="img1">
                             <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/playing ground.png"
@@ -183,7 +183,7 @@
                 <div class="underline mb-3"></div>
                 <p class="wf-24">Explore Our Gallery of Exquisite Floors</p>
             </div>
-            <div class="col-lg-11 m-auto" data-aos="zoom-in-down" data-aos-duration="1000">
+            <div class="col-md-11 m-auto" data-aos="zoom-in-down" data-aos-duration="1000">
                 <div class="gallery-images-slider owl-carousel">
                     <div class="img1 image-anime">
                         <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-luxuryfloor.jpeg"
@@ -216,7 +216,7 @@
                 <p class="wf-24">Explore Our Gallery of Exquisite Floors</p>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-duration="800">
+                <div class="col-md-6 col-md-6" data-aos="zoom-in" data-aos-duration="800">
                     <div class="apartment-boxarea">
                         <div class="img1">
                             <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-luxuryfloor.jpeg"
@@ -243,7 +243,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6" data-aos="zoom-in-up" data-aos-duration="900">
+                <div class="col-md-6 col-md-6" data-aos="zoom-in-up" data-aos-duration="900">
                     <div class="apartment-boxarea">
                         <div class="img1">
                             <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-independent-luxury-floor.jpg"
@@ -343,7 +343,7 @@
     <div class="about4-section-area sp6">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="about-images2">
                         <div class="img1 reveal image-anime">
                             <img src="{{ asset('public') }}/front-assets/img/floors-images/Rectangle-79.png"
@@ -351,8 +351,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-5" style="margin-bottom: 120px;">
+                <div class="col-md-1"></div>
+                <div class="col-md-5" style="margin-bottom: 120px;">
                     <div class="about4-header heading4">
                         <div class="container">
                             <form action="">
@@ -389,7 +389,7 @@
     <div class="footer4-section-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="footer-menu-area">
                         <div class="footer-elements">
                             <div class="footer-logo">
@@ -415,7 +415,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-5 m-auto">
+                            <div class="col-md-5 m-auto">
                                 <div class="footer-call-area text-center">
                                     <a href="tel:+91 7026600000" style="font-size:24px;">+91-7026600000</a>
                                     <div class="space36"></div>
@@ -423,7 +423,7 @@
                                         <li><a href="#"> <span><i
                                                         class="fa-solid fa-location-crosshairs"></i></span> <span>Unit No-
                                                     214 , 2nd Floor, Tower 2, DLF Corporate Greens<br
-                                                        class="d-lg-block d-none"> Sector 74A-Gurgaon</span></a></li>
+                                                        class="d-md-block d-none"> Sector 74A-Gurgaon</span></a></li>
                                     </ul>
                                 </div>
                             </div>

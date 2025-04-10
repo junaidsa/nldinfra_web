@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://rtt.schlosserei-noebauer.at/'),
+    'url' => env('APP_URL', 'http://localhost/nldinfra_web/'),
 
     'asset_url' => env('ASSET_URL'),
 

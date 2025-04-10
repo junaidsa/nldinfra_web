@@ -59,6 +59,25 @@
 
             </ul>
         </li>
+        <li class="menu-item {{ Request::is('blog') || Request::is('blog/edit/*') || Request::is('blog/create') ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
+                <div data-i18n="Blog">Blog</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('blog/create') ? 'active' : '' }}">
+                    <a href="{{ url('blog/create') }}" class="menu-link">
+                        <div data-i18n="Create">Create</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('blog/index') ? 'active' : '' }}">
+                    <a href="{{ url('blog/index') }}" class="menu-link">
+                        <div data-i18n="Blog List">Blog List</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
         <li
             class="menu-item {{ Request::is('supports') || Request::is('support/details/*') || Request::is('support/create') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">

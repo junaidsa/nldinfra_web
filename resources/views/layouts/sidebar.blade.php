@@ -26,10 +26,16 @@
                 <div data-i18n="Dashboard">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item {{ Request::is('chat') ? 'active' : '' }}">
-            <a href="{{ url('chat') }}" class="menu-link">
+        <li class="menu-item {{ Request::is('admi/blogs') ? 'active' : '' }}">
+            <a href="{{ url('admi/blogs') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-square"></i>
                 <div data-i18n="Blogs">Blogs</div>
+            </a>
+        </li>
+        <li class="menu-item {{ Request::is('admi/blogs') ? 'active' : '' }}">
+            <a href="{{ url('admin/testimonial') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-square"></i>
+                <div data-i18n="Testimonial">Testimonial</div>
             </a>
         </li>
 

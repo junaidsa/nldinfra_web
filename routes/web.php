@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Homecontroller;
 use App\Http\Controllers\ProjectConcroller;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Utilitycontroller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,10 @@ Route::get('/blogs',[Homecontroller::class,'blogs'])->name('blogs');
 Route::get('/contact',[Homecontroller::class,'contact'])->name('contact');
 
 Route::middleware('auth')->group(function () {
-Route::get('/dashboard',[Homecontroller::class,'index'])->name('dashboard');
+Route::get('/home',[Homecontroller::class,'index'])->name('dashboard');
 Route::get('/project/create',[ProjectConcroller::class,'create'])->name('project.create');
+Route::post('/project/store',[ProjectConcroller::class,'store'])->name('project.store');
+Route::get('admin/testimonial/create',[TestimonialController::class,'create'])->name('testimonial.create');
+Route::get('admin/testimonial',[TestimonialController::class,'index'])->name('testimonial.index');
 });
 require __DIR__ . '/auth.php';

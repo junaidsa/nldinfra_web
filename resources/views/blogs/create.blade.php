@@ -49,7 +49,7 @@
                                             <button class="btn btn-label-primary me-3">
                                                 <span class="align-middle"> Back</span>
                                             </button>
-                                            <button class="btn btn-primary">Create Project</button>
+                                            <button class="btn btn-primary">Create Blog</button>
                                         </div>
                                     </div>
                                 </form>

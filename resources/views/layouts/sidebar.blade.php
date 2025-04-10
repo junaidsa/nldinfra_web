@@ -70,8 +70,8 @@
                         <div data-i18n="Create">Create</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('blog/index') ? 'active' : '' }}">
-                    <a href="{{ url('blog/index') }}" class="menu-link">
+                <li class="menu-item {{ Request::is('blog') ? 'active' : '' }}">
+                    <a href="{{ url('blog') }}" class="menu-link">
                         <div data-i18n="Blog List">Blog List</div>
                     </a>
                 </li>

@@ -13,21 +13,54 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="exampleFormControlSelect1" class="form-label">Project</label>
-                                        <select class="form-select" id="status" name="status"
-                                            aria-label="Default select example">
-                                            <option value="1">Active</option>
-                                            <option value="2 ">Deactive</option>
-
+                                        <label for="project_id" class="form-label">Project</label>
+                                        <select class="form-select" id="project_id" name="project_id" aria-label="Default select example">
+                                            <option disabled selected>Select a project</option>
+                                            @foreach($projects as $project)
+                                                <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="subject_name" class="form-label">Name</label>
                                         <input type="text" class="form-control @error('name') is-invalid @enderror"
                                             id="name" name="name" placeholder="Enter  Name" />
                                         @error('name')
+                                            <div class=" invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="designation" class="form-label">Designation</label>
+                                        <input type="text" class="form-control @error('designation') is-invalid @enderror"
+                                            id="designation" name="designation" placeholder="Enter  Designation" />
+                                        @error('designation')
+                                            <div class=" invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="avatar" class="form-label">Image</label>
+                                        <input type="file" class="form-control @error('avatar') is-invalid @enderror"
+                                            id="avatar" name="avatar" />
+                                        @error('avatar')
+                                            <div class=" invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        {{-- <input type="text" class="form-control @error('message') is-invalid @enderror"
+                                            id="message" name="message" placeholder="Enter  Message" /> --}}
+                                            <textarea class="form-control @error('message') is-invalid @enderror" id="message"
+                                            name="message" rows="5" placeholder="Message"></textarea>
+                                        @error('message')
                                             <div class=" invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

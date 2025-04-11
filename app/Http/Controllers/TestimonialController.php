@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Projects;
+use App\Models\Testimonials;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
     public function index(){
-    return view('testimonial.index');
+       $testimonials = Testimonials::get();
+    return view('testimonial.index', compact('testimonials'));
 }
 public function store()
 {
-    
+
 }
 public function create(){
-    return view('testimonial.create');
+    $projects = Projects::get();
+    return view('testimonial.create', compact('projects'));
 
     }
     public function edit(){

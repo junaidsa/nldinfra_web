@@ -3,7 +3,7 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <!-- Responsive Datatable -->
     <div class="card">
-      <div class="card-header d-flex justify-content-between"><h5>Categoies List</h5> <div class="btn-container"><a href="{{url('category/create')}}" class="btn btn-success">Create Category</a></div></div>
+      <div class="card-header d-flex justify-content-between"><h5>testimonials List</h5> <div class="btn-container"><a href="{{url('admin/testimonials/create')}}" class="btn btn-success">Create Testimonials</a></div></div>
 
       <div class="card-body">
       <div class="card-datatable table-responsive">
@@ -12,20 +12,21 @@
             <tr>
               <th>Sr</th>
               <th>Name</th>
+              <th>designation</th>
+              <th>Project Name</th>
+              <th>message</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($category as $cat)
+            @foreach ($testimonials as $t)
 
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{$cat->name}}</td>
-                <td ><span class="badge  {{$cat->status == 1  ? 'bg-label-success' : 'bg-label-danger' }}">{{$cat->status == 1  ? 'Active' : 'Deacive' }}</span></td>
-
-                <td> <a href="{{url('/categories/edit/'.$cat->id)}}" class="edit-btn "><i class="ti ti-pencil me-1"></i></a>
-                    <a href="javascript:;" class="delete-btn" name="{{$cat->name}}"  id="{{$cat->id}}"><i class="ti ti-trash me-2"></i></a></td>
+                <td>{{$t->name}}</td>
+                <td> <a href="{{url('/categories/edit/'.$t->id)}}" class="edit-btn "><i class="ti ti-pencil me-1"></i></a>
+                    <a href="javascript:;" class="delete-btn" name="{{$t->name}}"  id="{{$t->id}}"><i class="ti ti-trash me-2"></i></a></td>
             </tr>
             @endforeach
           </tbody>

@@ -17,7 +17,7 @@ Route::get('/admin', function () {
 Route::get('/',[Homecontroller::class,'home'])->name('home');
 Route::get('/project',[Homecontroller::class,'project'])->name('project');
 Route::get('/about',[Homecontroller::class,'about'])->name('about');
-Route::get('/blogs',[Homecontroller::class,'blogs'])->name('blogs');
+Route::get('/blogs',[BlogController::class,'blogs'])->name('blogs');
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
 Route::get('/blog/create',[BlogController::class,'create'])->name('blog.create');
 Route::post('/blog/store',[BlogController::class,'store'])->name('blog.store');
@@ -34,6 +34,7 @@ Route::get('/project/create',[ProjectConcroller::class,'create'])->name('project
 Route::post('/project/store',[ProjectConcroller::class,'store'])->name('project.store');
 Route::post('/admin/testimonials/store',[TestimonialController::class,'store'])->name('testimonials.store');
 Route::get('admin/testimonials/create',[TestimonialController::class,'create'])->name('testimonial.create');
+Route::get('admin/testimonials',[TestimonialController::class,'index'])->name('testimonial.index');
 Route::get('admin/testimonial',[TestimonialController::class,'index'])->name('testimonial.index');
 });
 require __DIR__ . '/auth.php';

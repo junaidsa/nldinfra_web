@@ -3,8 +3,8 @@
     <!--===== BLOG AREA STARTS =======-->
     <div class="blog-inner-section-area sp6">
         <div class="container">
-            @foreach ($blogs as $blog)
-                <div class="row">
+            <div class="row">
+                    @foreach ($blogs as $blog)
                     <div class="col-md-4 ">
                         <div class="blog-boxarea">
                             <div class="img1 image-anime">

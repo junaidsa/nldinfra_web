@@ -24,7 +24,7 @@ Route::post('/blog/store',[BlogController::class,'store'])->name('blog.store');
 Route::get('/blog/edit/{id}',[BlogController::class,'blogEdit'])->name('blog.edit');
 Route::post('/blog/update/{id}',[BlogController::class,'blogUpdate'])->name('blog.update');
 Route::delete('/blog/delete/{id}', [BlogController::class, 'Blogdestroy'])->name('blog.destroy');
-// Route::delete('/blog/delete/{id}', [BlogController::class, 'Blogdestroy'])->name('blog.destroy');
+Route::get('admin/projects',[ProjectConcroller::class,'index'])->name('project.index');
 
 Route::get('/contact',[Homecontroller::class,'contact'])->name('contact');
 
@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/home',[Homecontroller::class,'index'])->name('dashboard');
 Route::get('/project/create',[ProjectConcroller::class,'create'])->name('project.create');
 Route::post('/project/store',[ProjectConcroller::class,'store'])->name('project.store');
-Route::get('admin/testimonial/create',[TestimonialController::class,'create'])->name('testimonial.create');
+Route::post('/admin/testimonials/store',[TestimonialController::class,'store'])->name('testimonials.store');
+Route::get('admin/testimonials/create',[TestimonialController::class,'create'])->name('testimonial.create');
 Route::get('admin/testimonial',[TestimonialController::class,'index'])->name('testimonial.index');
 });
 require __DIR__ . '/auth.php';

@@ -51,9 +51,29 @@
                         <div data-i18n="Create">Create</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('supports') ? 'active' : '' }}">
-                    <a href="{{ url('supports') }}" class="menu-link">
+                <li class="menu-item {{ Request::is('admin/projects') ? 'active' : '' }}">
+                    <a href="{{ url('admin/projects') }}" class="menu-link">
                         <div data-i18n="Project List">Project List</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li
+            class="menu-item {{ Request::is('admin/testimonials') || Request::is('admin/testimonials/edit/*') || Request::is('admin/testimonials/create') ? 'open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
+                <div data-i18n="Testimonials">Testimonials</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('admin/testimonials/create') ? 'active' : '' }}">
+                    <a href="{{ url('admin/testimonials/create') }}" class="menu-link">
+                        <div data-i18n="Create">Create</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('admin/testimonials') ? 'active' : '' }}">
+                    <a href="{{ url('admin/testimonials') }}" class="menu-link">
+                        <div data-i18n="Testimonials List">Testimonials List</div>
                     </a>
                 </li>
 

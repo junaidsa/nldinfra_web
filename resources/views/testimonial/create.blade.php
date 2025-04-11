@@ -6,9 +6,9 @@
             <!-- Form controls -->
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <h5 class="card-header">Create Category</h5>
+                    <h5 class="card-header">Create Testimonials</h5>
                     <div class="card-body">
-                        <form action="{{ url('category/store') }}" method="POST">
+                        <form action="{{ url('admin/testimonials/store') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">

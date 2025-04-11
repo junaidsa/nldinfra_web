@@ -12,6 +12,7 @@ class TestimonialController extends Controller
 }
 public function store()
 {
+    
 }
 public function create(){
     return view('testimonial.create');

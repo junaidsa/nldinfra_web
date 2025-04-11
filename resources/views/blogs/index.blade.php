@@ -43,6 +43,8 @@
                     </table>
                 </div>
             </div>
+            {{-- {{ $blog->links('pagination::bootstrap-5') }} --}}
+
         </div>
         <!--/ Responsive Datatable -->
     </div>

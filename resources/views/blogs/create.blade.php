@@ -18,32 +18,33 @@
                                 <form action="{{ url('blog/store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row g-3">
-
                                         <div class="col-md-12">
-                                            <label class="form-label" for="image"> Image</label>
-                                            <input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror" />
-                                            @error('image')
-                                            <div class=" invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <label class="form-label " for="short_description">Short Discripation</label>
-                                            <textarea class="form-control @error('short_description') is-invalid @enderror" id="short_description" name="short_description" rows="5"
-                                                placeholder="Description"></textarea>
-                                                @error('short_description')
-                                            <div class=" invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                            <label class="form-label " for="short_description">Title</label>
+                                            <textarea class="form-control @error('short_description') is-invalid @enderror" id="short_description"
+                                                name="short_description" rows="5" placeholder="Title"></textarea>
+                                            @error('short_description')
+                                                <div class=" invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                         <div class="col-md-12">
                                             <label class="form-label " for="description">Description</label>
-                                            <textarea class="form-control textarea @error('bolg_description') is-invalid @enderror" id="bolg_description" name="bolg_description" rows="5"
-                                                placeholder="Description"></textarea>
-                                                @error('bolg_description')
-                                            <div class=" invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                            <textarea class="form-control textarea @error('bolg_description') is-invalid @enderror" id="bolg_description"
+                                                name="bolg_description" rows="5" placeholder="Description"></textarea>
+                                            @error('bolg_description')
+                                                <div class=" invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
+
+                                        <div class="col-md-12">
+                                            <label class="form-label" for="image"> Image</label>
+                                            <input type="file" id="image" name="image"
+                                                class="form-control @error('image') is-invalid @enderror" />
+                                            @error('image')
+                                                <div class=" invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
 
                                         <div class="action-btns">
                                             <button class="btn btn-label-primary me-3">

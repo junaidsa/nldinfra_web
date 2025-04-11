@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function blogs()
-    {
-        return view('front.blogs');
-    }
+{
+    $blogs = Blog::latest()->get();
+    return view('front.blogs', compact('blogs'));
+}
+
+
 
     public function index()
     {
@@ -28,7 +31,7 @@ class BlogController extends Controller
     {
         $validated = $request->validate([
             'short_description' => 'required|string|max:255',
-            'bolg_description' => 'required|string|max:255',
+            'bolg_description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 

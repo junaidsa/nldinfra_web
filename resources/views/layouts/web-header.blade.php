@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('public') }}/front-assets/css/plugins/slick-slider.css">
     <link rel="stylesheet" href="{{ asset('public') }}/front-assets/css/plugins/nice-select.css">
     <link rel="stylesheet" href="{{ asset('public') }}/front-assets/css/main.css">
+
     <!--=====  JS SCRIPT LINK =======-->
     <script src="{{ asset('public') }}/front-assets/js/plugins/jquery-3-6-0.min.js"></script>
 </head>
@@ -42,6 +43,10 @@
    </div>
  <!--===== PROGRESS ENDS=======-->
 
+ <?php
+ $project = DB::table('projects')->get();
+
+ ?>
   <!--=====HEADER START=======-->
   <header>
     <div class="header-area homepage4 header header-sticky d-none d-lg-block " id="header">
@@ -56,7 +61,13 @@
                 <ul>
                   <li><a href="{{url('/')}}">Home<i class="fa-solid"></i></a></li>
                   <li><a href="{{url('/about')}}">About Us</a></li>
-                  <li><a href="{{url('/project')}}">Project</a></li>
+                  <li><a href="#">Project &nbsp;<i class="fa-solid fa-angle-down"></i></a>
+                    <ul class="dropdown-padding">
+                        @foreach ($project as $p)
+                        <li><a href="{{url('project/'.$p->id)}}">{{$p->project_name}}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
                   <li><a href="{{url('/blogs')}}">Blog</a></li>
                   <li><a href="{{url('/contact')}}">Contact</a></li>
                 </ul>

@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h5>Products List</h5>
-                <div class="btn-container"><a href="{{ url('products/create') }}" class="btn btn-success">Create Product</a>
+                <div class="btn-container"><a href="{{ url('project/create') }}" class="btn btn-success">Create Project</a>
                 </div>
             </div>
 
@@ -33,10 +33,12 @@
                                     <td>{{ @$p->title }}</td>
                                     <td>{{ @$p->discripation }}</td>
                                     <td>
-                                        <a href="" class="edit-btn "><i
-                                                class="ti ti-pencil me-1"></i></a>
-                                        <a href="javascript:void(0) " class="delete-btn" name="{{ $p->project_name }}"
-                                            id="{{ $p->id }}"><i class="ti ti-trash me-2"></i></a>
+                                        <a href="{{url('admin/project/gallery/'.$p->id)}}" class="edit-btn ">Gallery</a>
+                                        <a href="{{url('admin/project/amenitles/'.$p->id)}}" class="edit-btn ">Amenitles</a>
+                                        <a href="{{url('admin/project/featured/'.$p->id)}}" class="edit-btn ">Featured</a>
+                                        <br>
+                                        <a href="{{url('admin/project/'.$p->id)}}" class="edit-btn ">Edit</a> | <a href="javascript:void(0) " class="delete-btn" name="{{ $p->project_name }}"
+                                            id="{{ $p->id }}">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

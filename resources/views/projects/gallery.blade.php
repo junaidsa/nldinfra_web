@@ -1,23 +1,23 @@
 @extends('layouts.app')
-@section('css')
-    <link rel="stylesheet" href="{{ asset('public') }}/assets/filepond/dist/filepond.css">
-    <link rel="stylesheet" href="{{ asset('public') }}/assets/filepond/dist/filepond-plugin-image-preview.css">
-@endsection
 @section('main')
     <div class="container-xxl flex-grow-1 container-p-y">
         <!-- Sticky Actions -->
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card mb-3">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-12">
                                 <h5 class="mb-4 mt-4">Create Gallery</h5>
                                 <div class="row g-3">
+                                    <form id="galleryForm" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="project_id" value="{{ $id }}">
+
                                     <div class="col-md-12 col-sm-12 col-12 mb-2">
                                         <label class="form-label">Gallery</label>
-                                        <input type="file" name="attachment" multiple id="galleries"
-                                            class="form-control filepond" data-max-file-size="10MB" data-max-files="5">
+                                        <input type="file" name="attachment[]" multiple id="galleries"
+                                            class="form-control" data-max-file-size="10MB" data-max-files="5">
                                         @error('galleries')
                                             <div class="invalid-feedback d-block">{{ $message }}</div>
                                         @enderror
@@ -27,10 +27,28 @@
                                         <button class="btn btn-label-primary me-3">
                                             <span class="align-middle"> Back</span>
                                         </button>
-                                        <button class="btn btn-primary">Create</button>
+                                        <button class="btn btn-primary" type="submit">Upload</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mt-4">Our Gallery</h5>
+                        <div class="row">
+                            @foreach($galleries as $gallery)
+                                <div class="col-md-3 mb-3 gallery-image" data-id="{{ $gallery->id }}">
+                                    <div class="card">
+                                        <img src="{{ asset($gallery->image) }}" class="card-img-top" style="height: 150px; object-fit: cover;">
+                                        <div class="card-body text-center">
+                                            <button class="btn btn-danger btn-sm delete-image" data-id="{{ $gallery->id }}">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -41,149 +59,37 @@
     <!-- / Content -->
 @endsection
 @section('javascript')
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-    <script src="{{ asset('public') }}/assets/filepond/dist/filepond.min.js"></script>
-    <script src="{{ asset('public') }}/assets/filepond/dist/filepond.jquery.js"></script>
-    <script src="{{ asset('public') }}/assets/filepond/dist/filepond-plugin-image-preview.js"></script>
-    <script src="{{ asset('public') }}/assets/filepond/dist/filepond-plugin-image-exif-orientation.js"></script>
-    <script src="{{ asset('public') }}/assets/filepond/dist/filepond-plugin-file-validate-size.js"></script>
-    <script src="{{ asset('public') }}/assets/filepond/dist/filepond-plugin-image-edit.js"></script>
-    <script src="{{ asset('public') }}/assets/filepond/dist/filepond-plugin-file-validate-type.js"></script>
-    <script>
-        var gallery_files = []
-        FilePond.registerPlugin(
-            FilePondPluginImagePreview,
-            FilePondPluginImageExifOrientation,
-            FilePondPluginFileValidateSize,
-            FilePondPluginImageEdit,
-            FilePondPluginFileValidateType
-        );
-        // create a FilePond instance at the input element location
-        FilePond.create(
-            document.querySelector('#galleries'), {
-                name: 'attachment',
-                allowMultiple: true,
-                allowImagePreview: true,
-                imagePreviewFilterItem: false,
-                imagePreviewMarkupFilter: false,
-                dataMaxFileSize: "20MB",
-                acceptedFileTypes: ['image/*'],
-                // server
-                server: {
-                    process: {
-                        url: '{{ url('dashboard/document/file/upload') }}',
-                        method: 'POST',
-                        headers: {
-                            'x-customheader': 'Processing File'
-                        },
-                        onload: (response) => {
-                            response = response;
-                            gallery_files.push(response);
-                            return response;
+<script>
+    document.getElementById('galleryForm').addEventListener('submit', function(e){
+        e.preventDefault();
 
-                        },
-                        onerror: (response) => {
-                            return response
-                        },
-                        ondata: (formData) => {
-                            //console.log(formData)
-                            window.h = formData;
+        let formData = new FormData(this);
 
-                            return formData;
-                        }
-                    },
-                    revert: (uniqueFileId, load, error) => {
-                        const formData = new FormData();
-                        formData.append("key", uniqueFileId);
-                        gallery_files = gallery_files.filter(function(ele) {
-                            return ele != uniqueFileId;
-                        });
-
-                        fetch(`{{ url('dashboard/document/file/revert') }}?key=${uniqueFileId}`, {
-                                method: "DELETE",
-                                body: formData,
-                            }).then(res => res.json())
-                            .then(json => {
-                                // Should call the load method when done, no parameters required
-                                load();
-                            })
-                            .catch(err => {
-                                // Can call the error method if something is wrong, should exit after
-                                error(err.message);
-                            })
-                    },
-
-                    load: (uniqueFileId, load, error, progress, abort, headers) => {
-                        // implement logic to load file from server here
-                        // https://pqina.nl/filepond/docs/patterns/api/server/#load-1
-
-                        let controller = new AbortController();
-                        let signal = controller.signal;
-                        var XMLHttpRequest1 = new XMLHttpRequest();
-                        fetch(`{{ url('dashboard/document/file/load') }}?key=${uniqueFileId}&path=cars/`, {
-                                method: "GET",
-                                signal,
-                            })
-                            .then(res => {
-
-                                window.c = res
-                                console.log(res)
-                                return res.blob();
-                            })
-                            .then(blob => {
-
-
-                                const imageFileObj = new File([blob], `${uniqueFileId}`, {
-                                    type: blob.type
-                                })
-                                //console.log(imageFileObj)
-                                progress(true, 0, blob.size);
-
-                                load(imageFileObj)
-
-
-                            })
-                            .catch(err => {
-
-
-
-                            })
-
-                        return {
-                            abort: () => {
-                                // User tapped cancel, abort our ongoing actions here
-                                controller.abort();
-                                // Let FilePond know the request has been cancelled
-                                abort();
-                            }
-                        };
-                    },
-
-                    remove: (uniqueFileId, load, error) => {
-                        // Should somehow send `source` to server so server can remove the file with this source
-                        gallery_files = gallery_files.filter(function(ele) {
-                            return ele != uniqueFileId;
-                        });
-
-
-                        // Should call the load method when done, no parameters required
-                        load();
-                    },
-
-                },
-                onactivatefile: function(file) {
-                    var filePath = file.serverId.replace(/"/g, "");
-                    var win = window.open("{{ asset('uploads/temp_files') }}/" + filePath, '_blank');
-                    win.focus();
-                }
+        fetch("{{ route('project.gallery.upload') }}", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
             }
-        );
-        ClassicEditor
-            .create(document.querySelector('#description'), {
-                height: '15rem'
-            })
-            .catch(error => {
-                console.error(error);
+        }).then(res => res.json()).then(data => {
+            if(data.success) location.reload();
+        });
+    });
+
+    document.querySelectorAll('.delete-image').forEach(button => {
+        button.addEventListener('click', function(){
+            const id = this.dataset.id;
+
+            fetch(`{{ url('admin/project/gallery/delete') }}/${id}`, {
+                method: "DELETE",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            }).then(res => res.json()).then(data => {
+                if(data.success) document.querySelector(`.gallery-image[data-id="${id}"]`).remove();
             });
+        });
+    });
     </script>
+
 @endsection

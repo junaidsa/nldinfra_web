@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="{{ url('/') }}" class="app-brand-link">
+        <a href="{{ url('/home') }}" class="app-brand-link">
             <img src="{{ asset('public') }}/assets/img/branding/logo.png" style="height: 40px" class="app-brand-logo ms-3">
         </a>
 
@@ -105,13 +105,13 @@
                 <div data-i18n="Setting">Setting</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::is('support/create') ? 'active' : '' }}">
-                    <a href="{{ url('support/create') }}" class="menu-link">
+                <li class="menu-item {{ Request::is('admin/about') ? 'active' : '' }}">
+                    <a href="{{ url('admin/about') }}" class="menu-link">
                         <div data-i18n="About">About</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('supports') ? 'active' : '' }}">
-                    <a href="{{ url('supports') }}" class="menu-link">
+                <li class="menu-item {{ Request::is('admin/contacts') ? 'active' : '' }}">
+                    <a href="{{ url('admin/contacts') }}" class="menu-link">
                         <div data-i18n="Contact Messages">Contact Messages</div>
                     </a>
                 </li>

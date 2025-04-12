@@ -40,7 +40,7 @@
                               </div>
                               <div class="col-md-6">
                                 <label class="form-label" for="pincode">Video link</label>
-                                <input type="text" id="video_url" value="{{old('video_url')}}" class="form-control" />
+                                <input type="url" name="video_url" id="video_url" value="{{old('video_url')}}" class="form-control" />
                               </div>
                               <div class="col-md-6">
                                 <label class="form-label" for="landmark">Image</label>

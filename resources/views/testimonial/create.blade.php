@@ -8,18 +8,21 @@
                 <div class="card mb-4">
                     <h5 class="card-header">Create Testimonials</h5>
                     <div class="card-body">
-                        <form action="{{ url('admin/testimonials/store') }}" method="POST">
+                        <form action="{{ url('admin/testimonials/store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="project_id" class="form-label">Project</label>
-                                        <select class="form-select" id="project_id" name="project_id" aria-label="Default select example">
+                                        <select class="form-select @error('project_id') is-invalid @enderror" id="project_id" name="project_id" aria-label="Default select example">
                                             <option disabled selected>Select a project</option>
                                             @foreach($projects as $project)
-                                                <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                                <option value="{{ $project->id }}">{{ $project->project_name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('project_id')
+                                        <div class=" invalid-feedback">{{ $message }}</div>
+                                         @enderror
                                     </div>
                                 </div>
 
@@ -56,8 +59,6 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label for="message" class="form-label">Message</label>
-                                        {{-- <input type="text" class="form-control @error('message') is-invalid @enderror"
-                                            id="message" name="message" placeholder="Enter  Message" /> --}}
                                             <textarea class="form-control @error('message') is-invalid @enderror" id="message"
                                             name="message" rows="5" placeholder="Message"></textarea>
                                         @error('message')

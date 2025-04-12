@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Contact;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 class Homecontroller extends Controller
 {
 
@@ -17,10 +21,29 @@ class Homecontroller extends Controller
         return view('front.project');
     }
     public function about(){
-        return view('front.about');
+        $ab = DB::table('about')->where('is_deleted', 0)->first();
+        return view('front.about',compact('ab'));
     }
-    
+    public function create_about(){
+        $ab = DB::table('about')->where('is_deleted', 0)->first();
+        return view('admin.about',compact('ab'));
+    }
+
     public function contact(){
         return view('front.contact');
+    }
+    public function showContactMessage(){
+       $contact =  Contact::get();
+        return view('admin.contact_list',compact('contact'));
+    }
+    public function aboutupdate(Request $req){
+        $req->validate([
+            'about' => ['required'],
+        ]);
+        $data = array(
+            'about' => $req->about
+        );
+        $save = DB::table('about')->where('id', 1)->update($data);
+        return redirect()->back()->with('success', 'About Update Successfully');
     }
 }

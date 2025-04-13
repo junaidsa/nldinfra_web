@@ -99,7 +99,7 @@ class ProjectConcroller extends Controller
         $validated = $request->validate([
             'id' => 'required|exists:projects,id',
             'title' => 'required|string|max:255',
-            'discripation' => 'required',
+            'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $featured = Featured::firstOrNew(['project_id' => $request->id]);

@@ -125,7 +125,7 @@
                     <span class="h6 text-muted">Blue Area, islamabad</span>
                     <div class="clearfix mt-4">
                         <span class="float-start price-hp fw-bold">$599.00</span>
-                        <a href="">
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
                             <svg xmlns="http://www.w3.org/2000/svg" class="float-end badge rounded-pill" width="50" height="30" viewBox="0 0 42 30" fill="none">
                                 <rect width="42" height="30" rx="7.5" fill="#42A15B"/>
                                 <path d="M14 14.8272H28M28 14.8272L22.1667 7M28 14.8272L22.1667 22.6544" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -151,7 +151,7 @@
                     <span class="h6 text-muted">Blue Area, islamabad</span>
                     <div class="clearfix mt-4">
                         <span class="float-start price-hp fw-bold">$599.00</span>
-                        <a href="">
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
                             <svg xmlns="http://www.w3.org/2000/svg" class="float-end badge rounded-pill" width="50" height="30" viewBox="0 0 42 30" fill="none">
                                 <rect width="42" height="30" rx="7.5" fill="#42A15B"/>
                                 <path d="M14 14.8272H28M28 14.8272L22.1667 7M28 14.8272L22.1667 22.6544" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -177,7 +177,7 @@
                     <span class="h6 text-muted">Blue Area, islamabad</span>
                     <div class="clearfix mt-4">
                         <span class="float-start price-hp fw-bold">$599.00</span>
-                        <a href="">
+                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
                             <svg xmlns="http://www.w3.org/2000/svg" class="float-end badge rounded-pill" width="50" height="30" viewBox="0 0 42 30" fill="none">
                                 <rect width="42" height="30" rx="7.5" fill="#42A15B"/>
                                 <path d="M14 14.8272H28M28 14.8272L22.1667 7M28 14.8272L22.1667 22.6544" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -193,7 +193,7 @@
       <div class="col-lg-12" data-aos="zoom-in-up" data-aos-duration="1000">
         <div class="space18"></div>
         <div class="btn-area1 text-center rounded">
-          <a href="" class="btn btn-success col-md-3 p-2"> View More Property</a>
+          <a href="#" class="btn btn-success col-md-3 p-2" data-toggle="modal" data-target="#exampleModalCenter"> View More Property</a>
         </div>
       </div>
     </div>
@@ -223,7 +223,7 @@
             <br>We can make this happen.
           </p>
 
-          <a href="#" class="btn btn-success mb-5 px-4 py-2">I Want Book Floor</a>
+          <a href="#" class="btn btn-success mb-5 px-4 py-2" data-toggle="modal" data-target="#exampleModalCenter">I Want Book Floor</a>
 
           <!-- Property Info Cards -->
           <div class="row g-3 ">
@@ -278,7 +278,7 @@
           <p class="text-muted my-3">
             Discover the perfect blend of modern design and luxury with our premium floors
           </p>
-          <a href="#" class="btn btn-success px-4 py-2 mb-4">Get Started</a>
+          <a href="#" class="btn btn-success px-4 py-2 mb-4" data-toggle="modal" data-target="#exampleModalCenter">Get Started</a>
 
           <!-- Stats -->
           <div class="row text-center text-md-start mt-4">

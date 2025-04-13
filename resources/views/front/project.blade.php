@@ -1,22 +1,28 @@
 @extends('layouts.web-app')
 @section('web-main')
     <!--===== ABOUT AREA STARTS =======-->
+    @php
+    $project = DB::table('projects')->where('id',$id)->first();
+    $projects = DB::table('projects')->get();
+    $featured = DB::table('featureds')->where('project_id',$id)->first();
+    $amenities = DB::table('amenities')->where('project_id',$id)->get();
+    $galleries = DB::table('galleries')->where('project_id',$id)->get();
+    $testimonials = DB::table('testimonials')->where('project_id',$id)->get();
+    @endphp
     <div class="about4-section-area sp6">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-1"></div>
+                <div class="cl-md-1"></div>
                 <div class="col-md-7 mb-5">
                     <div class="about4-header heading4">
                         <div class="space20"></div>
-                        <h1 class="main-text">Experience the urban living <br> in <span style="color:#FFA513;">Premium
-                                Floors</span> </h1>
+                        <h1 class="main-text">{{ $project->title ?? 'Premium Floors' }} </h1>
                         <div class="space16"></div>
-                        <p data-aos="fade-left" data-aos-duration="900" style="text-align:justify;">Discover the perfect
-                            blend of modern designand <br> luxury with our premium floors</p>
+                        <p data-aos="fade-left" data-aos-duration="900" style="text-align:justify;">{{ $project->discripation}}</p>
                         <div class="space20"></div>
                         <div class="btn-area1" data-aos="fade-left" data-aos-duration="1200">
                             <a href="" class="btn me-3" style="background: #FFEDBD;color:black;">Learn More</a>
-                            <a href="https://www.youtube.com/watch?v=Y8XpQpW5OVY" class="btn"
+                            <a href="{{$project->video_url ?? '#'}}" class="btn"
                                 style="background: #f2f2f2;color:black;"><i
                                     class="fa-solid fa-play-circle"></i>&nbsp;&nbsp;Watch</a>
                         </div>
@@ -25,7 +31,7 @@
                 <div class="col-md-4">
                     <div class="about-images4">
                         <div class="img1 reveal image-anime">
-                            <img src="{{ asset('public') }}/front-assets/img/floors-images/Rectangle 57.png" alt="">
+                            <img src="{{ asset('public/files') }}/{{$project->image}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -36,8 +42,7 @@
 
 
 
-
-
+@if ($featured)
     <div class="about4-section-area sp6">
         <div class="container">
             <div class="section-heading text-center mb-10">
@@ -47,28 +52,15 @@
             <div class="row align-items-center">
                 <!-- Image Column -->
                 <div class="col-md-6">
-                    <img src="{{ asset('public') }}/front-assets/img/floors-images/Rectangle-61.png"
+                    <img src="{{ asset('public/files') }}/{{$featured->image}}"
                         alt="3 BHK Luxury Floor" class="img-fluid rounded">
                 </div>
 
                 <!-- Text Column -->
                 <div class="col-md-6 mt-3 d-flex flex-column justify-content-center">
-                    <h3 class="mb-2 wf-36">3 BHK Luxury Floor</h3>
+                    <h3 class="mb-2 wf-36">{{$featured->title}}</h3>
                     <div class="space20"></div>
-                    <p class="wf-24">
-                        Are you looking for premium 3 BHK luxury floors in a prime location? Whether you're a growing
-                        family,
-                        a professional couple, or someone looking to invest in high-end real estate, these stunning
-                        apartments
-                        offer everything you need for a luxurious lifestyle.
-                    </p>
-                    <div class="space20"></div>
-                    <p class="wf-24">
-
-                        A premium 3 BHK luxury floor is perfect for those seeking more space, comfort, and a lifestyle
-                        upgrade.
-                        Make a choice that combines luxury and functionality, and experience the best in modern living.
-                    </p>
+                    {!!$featured->description!!}
                     <div class="btn-area1 mt-3" data-aos="fade-left" data-aos-duration="1200">
                         <a href="" class="btn me-3">View our Property</a>
                     </div>
@@ -76,7 +68,11 @@
             </div>
         </div>
     </div>
+@endif
+
+
     <!--===== SERVICE AREA STARTS =======-->
+    @if ($amenities->isNotEmpty())
     <div class="service4-section-area sp7">
         <div class="container">
             <div class="section-heading text-center mb-10">
@@ -85,97 +81,27 @@
                 <p class="wf-24">Sophisticated Amenities for a Luxurious Living Experience</p>
             </div>
             <div class="row">
-                <div class="col-md-3 col-md-6" data-aos="zoom-in-up" data-aos-duration="800">
-                    <div class="service-amenities-boxarea">
-                        <div class="img1">
-
-
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/badminton court.png"
-                                alt="">
-                        </div>
-                        <div class="content-area">
-                            <a href="">Badminton Court</a>
-                        </div>
-                        <div class="view-btn">
-                            <a href="">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5 col-md-6" data-aos="zoom-in-up" data-aos-duration="1000">
-                    <div class="service-amenities-boxarea">
-                        <div class="img1">
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/cabana.png"
-                                alt="">
-                        </div>
-                        <div class="content-area">
-                            <a href="">Cabana</a>
-                        </div>
-                        <div class="view-btn">
-                            <a href="">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-6" data-aos="zoom-in-up" data-aos-duration="1200">
-                    <div class="service-amenities-boxarea">
-                        <div class="img1">
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/kids play area.png"
-                                alt="">
-                        </div>
-                        <div class="content-area">
-                            <a href="">Kids Play Zone</a>
-                        </div>
-                        <div class="view-btn">
-                            <a href="">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-6" data-aos="zoom-in-up" data-aos-duration="800">
-                    <div class="service-amenities-boxarea">
-                        <div class="img1">
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/amphiteathre.png"
-                                alt="">
-                        </div>
-                        <div class="content-area">
-                            <a href="">Amphitheatre</a>
-                        </div>
-                        <div class="view-btn">
-                            <a href="">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5 col-md-6" data-aos="zoom-in-up" data-aos-duration="1000">
-                    <div class="service-amenities-boxarea">
-                        <div class="img1">
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/gym.png" alt="">
-                        </div>
-                        <div class="content-area">
-                            <a href="">Fitness Facilities</a>
-                        </div>
-                        <div class="view-btn">
-                            <a href="">View</a>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($amenities as $a)
                 <div class="col-md-3 col-md-6" data-aos="zoom-in-up" data-aos-duration="1200">
                     <div class="service-amenities-boxarea">
                         <div class="img1">
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/playing ground.png"
-                                alt="">
+                            <img src="{{ asset($a->icon) }}" alt="">
                         </div>
                         <div class="content-area">
-                            <a href="">Playing Ground</a>
+                            <a href="">{{$a->title}}</a>
                         </div>
                         <div class="view-btn">
-                            <a href="">View</a>
+                            <a href="{{ asset($a->icon) }}">View</a>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
+    @endif
     <!--===== SERVICE AREA ENDS =======-->
-
-    <!--===== GALLERY AREA STARTS =======-->
+    @if ($galleries->isNotEmpty())
     <div class="gallery4-section-area sp6">
         <div class="container">
             <div class="section-heading text-center mb-10">
@@ -185,26 +111,18 @@
             </div>
             <div class="col-md-11 m-auto" data-aos="zoom-in-down" data-aos-duration="1000">
                 <div class="gallery-images-slider owl-carousel">
+                    @foreach ($galleries as $g)
                     <div class="img1 image-anime">
-                        <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-luxuryfloor.jpeg"
-                            alt="">
+                        <img src="{{ asset($g->image) }}" alt="">
                     </div>
-                    <div class="img1 image-anime">
-                        <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-independent-builder-floor.jpg"
-                            alt="">
-                    </div>
-                    <div class="img1 image-anime">
-                        <img src="{{ asset('public') }}/front-assets/img/all-images/gallery/gallery-img1.png"
-                            alt="">
-                    </div>
-                    <div class="img1 image-anime">
-                        <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-bathroom.jpg"
-                            alt="">
-                    </div>
+                @endforeach
+
                 </div>
             </div>
         </div>
     </div>
+    @endif
+    <!--===== GALLERY AREA STARTS =======-->
     <!--===== GALLERY AREA ENDS =======-->
 
     <!--===== APARTMENT AREA STARTS =======-->
@@ -216,53 +134,24 @@
                 <p class="wf-24">Explore Our Gallery of Exquisite Floors</p>
             </div>
             <div class="row">
+                @foreach ($projects as $p)
                 <div class="col-md-6 col-md-6" data-aos="zoom-in" data-aos-duration="800">
                     <div class="apartment-boxarea">
                         <div class="img1">
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-luxuryfloor.jpeg"
+                            <img src="{{ asset('public/files') }}/{{$p->image}}"
                                 alt="">
                         </div>
                         <div class="content-area">
-                            <a href="project.php">NLD Luxury Floor - Sector 35 South of Gurgaon at Bonheur Avenue</a>
+                            <a href="project.php">{{$p->project_name}}</a>
                             <div class="space16"></div>
-                            <ul>
-                                <li><a href="#"><img
-                                            src="{{ asset('public') }}/front-assets/img/icons/bed-icon1.svg"
-                                            alt="">x3</a> <span> | </span></li>
-                                <li><a href="#"><img
-                                            src="{{ asset('public') }}/front-assets/img/icons/bat-icon1.svg"
-                                            alt="">x3</a> <span> | </span></li>
-                                <li><a href="#"><img
-                                            src="{{ asset('public') }}/front-assets/img/icons/squre-icon1.svg"
-                                            alt="">167/178 sqyd</a></li>
-                            </ul>
+                       <p>{{$p->discripation}}</p>
                         </div>
                         <div class="arrow">
                             <a href="project.php">View</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-md-6" data-aos="zoom-in-up" data-aos-duration="900">
-                    <div class="apartment-boxarea">
-                        <div class="img1">
-                            <img src="{{ asset('public') }}/front-assets/img/all-images/about/nld/nld-independent-luxury-floor.jpg"
-                                alt="">
-                        </div>
-                        <div class="content-area">
-                            <a href="">NLD Luxury Floor - Sector 93 Gurgaon DLF Gardencity Enclave </a>
-                            <div class="space16"></div>
-                            <ul>
-                                <li><a href="#"><img src="{{ asset('public') }}/front-assets/img/icons/bed-icon1.svg" alt="">x3</a> <span> | </span></li>
-                                <li><a href="#"><img src="{{ asset('public') }}/front-assets/img/icons/bat-icon1.svg" alt="">x3</a> <span> | </span></li>
-                                <li><a href="#"><img src="{{ asset('public') }}/front-assets/img/icons/squre-icon1.svg" alt="">179.4 sqyd</a></li>
-                            </ul>
-                        </div>
-                        <div class="arrow">
-                            <a href="independent_luxury_floor.php">View</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -275,6 +164,7 @@
     <!--===== PROPERTIES AREA ENDS =======-->
 
     <!--===== TESTIMONIAL AREA STARTS =======-->
+    @if ($amenities->isNotEmpty())
     <div class="testimonial4-section-area sp1">
         <div class="container">
             <div class="section-heading text-center mb-10">
@@ -284,46 +174,21 @@
             </div>
             <div class="row justify-content-center">
                 <!-- Card 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow text-center p-4">
-                        <div class="mb-2"><i class="fas fa-quote-left text-warning fa-2x"></i></div>
-                        <div class="text-warning mb-2">★★★★★</div>
-                        <p class="mb-3">Outstanding experience with this propertydealer. He is very nice and punctual.
-                            Highly recommended.</p>
-                        <img src="{{ asset('public') }}/front-assets/img/all-images/testimonial/testimonial-img2.png"
-                            alt="Kathryn" class="rounded-circle mb-2" width="60">
-                        <h6 class="fw-bold mb-0">Kathryn Murphy</h6>
-                        <small>Saudi Arabia</small>
-                    </div>
-                </div>
-
                 <!-- Card 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow text-center p-4">
-                        <div class="mb-2"><i class="fas fa-quote-left text-warning fa-2x"></i></div>
-                        <div class="text-warning mb-2">★★★★★</div>
-                        <p class="mb-3">Outstanding experience with this propertydealer. He is very nice and punctual.
-                            Highly recommended.</p>
-                        <img src="{{ asset('public') }}/front-assets/img/all-images/testimonial/testimonial-img4.png"
-                            alt="Annette" class="rounded-circle mb-2" width="60">
-                        <h6 class="fw-bold mb-0">Annette Black</h6>
-                        <small>Palestine, State Of</small>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow text-center p-4">
-                        <div class="mb-2"><i class="fas fa-quote-left text-warning fa-2x"></i></div>
-                        <div class="text-warning mb-2">★★★★★</div>
-                        <p class="mb-3">Outstanding experience with this propertydealer. He is very nice and punctual.
-                            Highly recommended.</p>
-                        <img src="{{ asset('public') }}/front-assets/img/all-images/testimonial/testimonial-img5.png"
-                            alt="Darlene" class="rounded-circle mb-2" width="60">
-                        <h6 class="fw-bold mb-0">Darlene Robertson</h6>
-                        <small>Sao Tome And Principe</small>
-                    </div>
-                </div>
+@foreach ($testimonials as $t)
+<!-- Card 3 -->
+<div class="col-md-4 mb-4">
+    <div class="card shadow text-center p-4">
+        <div class="mb-2"><i class="fas fa-quote-left text-warning fa-2x"></i></div>
+        <div class="text-warning mb-2">★★★★★</div>
+        <p class="mb-3">{{$t->message}}.</p>
+        <img src="{{ asset('public/files') }}/{{$t->avatar}}"
+            alt="Darlene" class="rounded-circle mb-2" width="60">
+        <h6 class="fw-bold mb-0">{{$t->name}}</h6>
+        <small>{{$t->designation}}</small>
+    </div>
+</div>
+@endforeach
             </div>
             <!-- Dots for navigation (optional if using JS slider) -->
             <div class="text-center mt-4">
@@ -338,7 +203,7 @@
     </div>
     <!--===== TESTIMONIAL AREA ENDS =======-->
 
-
+@endif
     <!--===== CTA AREA ENDS =======-->
     <div class="about4-section-area sp6">
         <div class="container">
@@ -355,26 +220,40 @@
                 <div class="col-md-5" style="margin-bottom: 120px;">
                     <div class="about4-header heading4">
                         <div class="container">
-                            <form action="">
+                            <form action="{{url('add-contact')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="project_id" id="project_id" value="{{$id}}">
                                 <div class="form-group mt-4">
-                                    <label for="name">Name <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="name"
+                                    <label for="name">Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name"
                                         aria-describedby="emailHelp">
+                                        @error('name')
+                                        <div class=" invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group mt-4">
                                     <label for="email">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="email"
+                                    <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" name="email"
                                         aria-describedby="emailHelp">
+                                        @error('email')
+                                        <div class=" invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group mt-4">
                                     <label for="mobile">Mobile <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="mobile"
-                                        aria-describedby="emailHelp">
+                                    <input type="number" class="form-control  @error('mobile_number') is-invalid @enderror" id="mobile"
+                                        aria-describedby="emailHelp" name="mobile_number">
+                                        @error('mobile_number')
+                                        <div class=" invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group mt-4">
                                     <label for="Message">Message</label>
-                                    <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                                    <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message" rows="4"></textarea>
                                 </div>
+                                @error('message')
+                                <div class=" invalid-feedback">{{ $message }}</div>
+                            @enderror
                                 <div class="row mt-4">
                                     <input type="submit" value="Submit" class="btn me-3"
                                         style="background: #FFEDBD;color:black;">

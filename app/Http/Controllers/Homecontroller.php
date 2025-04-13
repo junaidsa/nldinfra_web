@@ -17,8 +17,8 @@ class Homecontroller extends Controller
     public function home(){
         return view('front.home');
     }
-    public function project(){
-        return view('front.project');
+    public function project($id){
+        return view('front.project',compact('id'));
     }
     public function about(){
         $ab = DB::table('about')->where('is_deleted', 0)->first();
@@ -33,7 +33,7 @@ class Homecontroller extends Controller
         return view('front.contact');
     }
     public function showContactMessage(){
-       $contact =  Contact::get();
+       $contact =  Contact::with('project')->get();
         return view('admin.contact_list',compact('contact'));
     }
     public function aboutupdate(Request $req){
@@ -46,4 +46,22 @@ class Homecontroller extends Controller
         $save = DB::table('about')->where('id', 1)->update($data);
         return redirect()->back()->with('success', 'About Update Successfully');
     }
+    public function insertContact(Request $request) {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'mobile_number' => ['required', 'regex:/^\d{10,11}$/'],
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        Contact::create([
+            'project_id' => $request->project_id ?? null,
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'mobile_number' => $validated['mobile_number'],
+            'messages' => $validated['message'],
+        ]);
+        return redirect()->back()->with('success', 'Enquiry Created Successfully');
+    }
+
 }

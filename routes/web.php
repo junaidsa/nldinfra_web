@@ -47,5 +47,6 @@ Route::post('admin/project/amenitles/upload', [ProjectConcroller::class, 'upload
 Route::delete('admin/project/amenitles/delete/{id}', [ProjectConcroller::class, 'deleteAmenitles'])->name('project.amenitles.delete');
 Route::get('admin/project/featured/{id}',[ProjectConcroller::class,'featured'])->name('project.featured');
 Route::post('admin/featured/edit/{id}', [ProjectConcroller::class, 'featuredUpdate'])->name('featured.update');
+Route::post('add-contact', [Homecontroller::class, 'insertContact'])->name('contact.add');
 });
 require __DIR__ . '/auth.php';

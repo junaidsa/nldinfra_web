@@ -25,12 +25,12 @@
 
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>Not Found</td>
+                <td>{{$c->project->project_name ?? 'Not Found'}}</td>
                 <td>{{$c->name}}</td>
                 <td>{{$c->email}}</td>
                 <td>{{$c->mobile_number}}</td>
                 <td>{{$c->subject}}</td>
-                <td>{{$c->message}}</td>
+                <td>{{$c->messages}}</td>
                 <td><a href="javascript:;" class="delete-btn" name="{{$c->name}}"  id="{{$c->id}}"><i class="ti ti-trash me-2"></i></a></td>
             </tr>
             @endforeach

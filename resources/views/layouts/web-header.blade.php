@@ -72,9 +72,10 @@
                   <li><a href="{{url('/contact')}}">Contact</a></li>
                 </ul>
               </div>
-              <div class="btn-area4">
+              <button type="button" class="btn-area4" data-toggle="modal" data-target="#exampleModalCenter">
                 Get a Quote
-              </div>
+            </button>
+
 
             <div class="body-overlay"></div>
             </div>

@@ -1,5 +1,27 @@
 @extends('layouts.web-app')
 @section('web-main')
+<style>
+
+
+</style>
+@php
+    $projects = DB::table('projects')->get();
+
+@endphp
+<div class="space50"></div>
+<div class="gallery4-section-area mt-4">
+    {{-- <div class="container-fluid"> --}}
+        <div class="col-md-12 " data-aos="zoom-in-down" data-aos-duration="1000">
+            <div class="gallery-images-hero owl-carousel">
+                <div class="img1">
+                    <img src="{{ asset('public') }}/front-assets/img/Presentation 1_20250326_212445_0000_page-0020.jpg">
+                </div>
+            </div>
+        </div>
+    {{-- </div> --}}
+</div>
+{{-- @endif --}}
+<!--===== GALLERY AREA STARTS =======-->
   <!-- How It Works Section -->
   <section class="py-5 bg-light mt-5">
     <div class="container">
@@ -81,7 +103,7 @@
 <!--===== OTHERS AREA STARTS =======-->
 <div class="others4-section-area sp6 bg-light">
   <div class="container">
-    <div class="row">
+    {{-- <div class="row">
       <div class="col-lg-5 m-auto">
         <div class="others-header text-center space-margin60">
           <h5 class="wf-30" data-aos="fade-left" data-aos-duration="800">Best <span class="text-success">Properties</span> of the Month </h5>
@@ -107,10 +129,42 @@
           </ul>
 
       </div>
-    </div>
+    </div> --}}
     <div class="row">
 
-        <div class="col-md-4 rounded" data-aos="zoom-in-up" data-aos-duration="800">
+        <!--===== APARTMENT AREA STARTS =======-->
+    <div class="apartment4-section-area sp7 bg-light">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h1 class="wf-36" data-aos="fade-left" data-aos-duration="800"> Our Project</h1>
+                <div class="underline mb-3"></div>
+                <p class="wf-24">Explore Our Gallery of Exquisite Floors</p>
+            </div>
+            <div class="row">
+                @foreach ($projects as $p)
+                <div class="col-md-6 col-md-6" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="apartment-boxarea">
+                        <div class="img1">
+                            <img src="{{ asset('public/files') }}/{{$p->image}}"
+                                alt="">
+                        </div>
+                        <div class="content-area">
+                            <a href="project.php">{{$p->project_name}}</a>
+                            <div class="space16"></div>
+                       <p>{{$p->discripation}}</p>
+                        </div>
+                        <div class="arrow">
+                            <a href="project.php">View</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!--===== APARTMENT AREA ENDS =======-->
+
+        {{-- <div class="col-md-4 rounded" data-aos="zoom-in-up" data-aos-duration="800">
             <div class="card h-100 shadow-sm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
                 <div class="instagram-posts">
                     <div class="img1">
@@ -187,15 +241,14 @@
                 </div>
             </div>
         </div>
-
-
 
       <div class="col-lg-12" data-aos="zoom-in-up" data-aos-duration="1000">
         <div class="space18"></div>
         <div class="btn-area1 text-center rounded">
           <a href="#" class="btn btn-success col-md-3 p-2" data-toggle="modal" data-target="#exampleModalCenter"> View More Property</a>
         </div>
-      </div>
+      </div> --}}
+
     </div>
   </div>
 </div>

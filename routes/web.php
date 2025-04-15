@@ -40,7 +40,7 @@ Route::get('admin/testimonials',[TestimonialController::class,'index'])->name('t
 Route::get('admin/testimonial',[TestimonialController::class,'index'])->name('testimonial.index');
 Route::get('admin/about',[Homecontroller::class,'create_about'])->name('admin.about');
 Route::get('admin/contacts',[Homecontroller::class,'showContactMessage'])->name('admin.contact');
-Route::get('about-update',[Homecontroller::class,'aboutupdate'])->name('about.update');
+Route::post('about/update', [Homecontroller::class, 'aboutupdate'])->name('about.update');
 Route::post('admin/project/gallery/upload', [ProjectConcroller::class, 'uploadGallery'])->name('project.gallery.upload');
 Route::delete('admin/project/gallery/delete/{id}', [ProjectConcroller::class, 'deleteGallery'])->name('project.gallery.delete');
 Route::post('admin/project/amenitles/upload', [ProjectConcroller::class, 'uploadAmenitles'])->name('project.amenitles.upload');

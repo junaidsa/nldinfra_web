@@ -30,7 +30,7 @@ $(".tx-search-close").on("click", function (e) {
 });
 //========== SIDEBAR/SEARCH AREA ============= //
 
-//========== PAGE PROGRESS STARTS ============= // 
+//========== PAGE PROGRESS STARTS ============= //
   var progressPath = document.querySelector(".progress-wrap path");
   var pathLength = progressPath.getTotalLength();
   progressPath.style.transition = progressPath.style.WebkitTransition =
@@ -62,7 +62,7 @@ $(".tx-search-close").on("click", function (e) {
     jQuery("html, body").animate({ scrollTop: 0 }, duration);
     return false;
   });
-//========== PAGE PROGRESS STARTS ============= // 
+//========== PAGE PROGRESS STARTS ============= //
 
 //========== VIDEO POPUP STARTS ============= //
    if ($(".popup-youtube").length > 0) {
@@ -85,7 +85,7 @@ $('.cs_hover_active').hover(function () {
 //========== COUNTER UP============= //
 const ucounter = $('.counter');
 if (ucounter.length > 0) {
- ucounter.countUp();  
+ ucounter.countUp();
 };
 
 const color = $(".box-lists a.heart");
@@ -367,7 +367,7 @@ $('.testimonial3-vertical-slider').slick({
           infinite: true,
           }
           },
-          
+
           {
             breakpoint: 600,
             settings: {
@@ -375,7 +375,7 @@ $('.testimonial3-vertical-slider').slick({
             slidesToScroll: 2,
           }
           },
-    
+
           {
             breakpoint: 480,
             settings: {
@@ -383,7 +383,7 @@ $('.testimonial3-vertical-slider').slick({
             slidesToScroll: 2,
           }
           },
-    
+
           {
             breakpoint: 375,
             settings: {
@@ -391,7 +391,7 @@ $('.testimonial3-vertical-slider').slick({
             slidesToScroll: 2,
           }
           },
-    
+
           {
             breakpoint: 320,
             settings: {
@@ -401,7 +401,7 @@ $('.testimonial3-vertical-slider').slick({
           },
         ]
   });
-    
+
   $('.header-carousel-area4').owlCarousel({
     loop:true,
     margin:30,
@@ -435,8 +435,6 @@ $('.testimonial3-vertical-slider').slick({
     nav:true,
     dots:false,
     items:10,
-    mouseDrag:true,
-    navText:["<i class='fa-solid fa-arrow-left'></i>" , "<i class='fa-solid fa-arrow-right'></i>"],
     autoplay:true,
     smartSpeed:3000,
     autoplayTimeout:4000,
@@ -453,6 +451,20 @@ $('.testimonial3-vertical-slider').slick({
         }
     }
   });
+
+  $(document).ready(function(){
+    $('.gallery-images-hero').owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      nav: true,
+      dots: true
+    });
+  });
+
 
 // testimonial slider //
 $(".testimonial-nav").slick({

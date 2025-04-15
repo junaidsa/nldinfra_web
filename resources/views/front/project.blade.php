@@ -125,37 +125,6 @@
     <!--===== GALLERY AREA STARTS =======-->
     <!--===== GALLERY AREA ENDS =======-->
 
-    <!--===== APARTMENT AREA STARTS =======-->
-    <div class="apartment4-section-area sp7">
-        <div class="container">
-            <div class="section-heading text-center mb-10">
-                <h1 class="wf-36" data-aos="fade-left" data-aos-duration="800"> Our Project</h1>
-                <div class="underline mb-3"></div>
-                <p class="wf-24">Explore Our Gallery of Exquisite Floors</p>
-            </div>
-            <div class="row">
-                @foreach ($projects as $p)
-                <div class="col-md-6 col-md-6" data-aos="zoom-in" data-aos-duration="800">
-                    <div class="apartment-boxarea">
-                        <div class="img1">
-                            <img src="{{ asset('public/files') }}/{{$p->image}}"
-                                alt="">
-                        </div>
-                        <div class="content-area">
-                            <a href="project.php">{{$p->project_name}}</a>
-                            <div class="space16"></div>
-                       <p>{{$p->discripation}}</p>
-                        </div>
-                        <div class="arrow">
-                            <a href="project.php">View</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!--===== APARTMENT AREA ENDS =======-->
 
     <!--===== PROPERTIES AREA STARTS =======-->
 

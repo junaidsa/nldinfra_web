@@ -10,43 +10,62 @@ use Illuminate\Support\Facades\DB;
 class Homecontroller extends Controller
 {
 
-    public function index(){
+    public function index()
+    {
         return view('dashboad');
     }
 
-    public function home(){
+    public function home()
+    {
         return view('front.home');
     }
-    public function project($id){
-        return view('front.project',compact('id'));
+    public function project($id)
+    {
+        return view('front.project', compact('id'));
     }
-    public function about(){
+    public function about()
+    {
         $ab = DB::table('about')->where('is_deleted', 0)->first();
-        return view('front.about',compact('ab'));
+        return view('front.about', compact('ab'));
     }
-    public function create_about(){
+    public function create_about()
+    {
         $ab = DB::table('about')->where('is_deleted', 0)->first();
-        return view('admin.about',compact('ab'));
+        return view('admin.about', compact('ab'));
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('front.contact');
     }
-    public function showContactMessage(){
-       $contact =  Contact::with('project')->get();
-        return view('admin.contact_list',compact('contact'));
+    public function showContactMessage()
+    {
+        $contact =  Contact::with('project')->get();
+        return view('admin.contact_list', compact('contact'));
     }
-    public function aboutupdate(Request $req){
+    public function aboutupdate(Request $req)
+    {
         $req->validate([
             'about' => ['required'],
+            'about_title' => ['required'],
+            'about_attachment' => [''],
         ]);
+
+            $document = $req->file('about_attachment');
+            $name = now()->format('Y-m-d_H-i-s') . '-image';
+            $file = $name . '.' . $document->getClientOriginalExtension();
+            $targetDir = public_path('./files');
+            $document->move($targetDir, $file);
         $data = array(
-            'about' => $req->about
+            'about' => $req->about,
+            'about_title' => $req->about_title,
+            'about_attachment' => $file
         );
         $save = DB::table('about')->where('id', 1)->update($data);
         return redirect()->back()->with('success', 'About Update Successfully');
     }
-    public function insertContact(Request $request) {
+    public function insertContact(Request $request)
+    {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'mobile_number' => ['required', 'regex:/^\d{10,11}$/'],
@@ -63,5 +82,4 @@ class Homecontroller extends Controller
         ]);
         return redirect()->back()->with('success', 'Enquiry Created Successfully');
     }
-
 }

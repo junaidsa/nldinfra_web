@@ -181,6 +181,7 @@ public function uploadAmenitles(Request $request)
     ]);
 
     return response()->json(['success' => true]);
+    return redirect()->back()->with('success', 'About Update Successfully');
 }
 
 public function deleteAmenitles($id)

@@ -25,7 +25,7 @@
             <div class="col-lg-1"></div>
             <div class="col-lg-5">
                 <div class="property-content heading3">
-                    <h5 data-aos="fade-left" data-aos-duration="800">Real Estate Company</h5>
+                    <h5 data-aos="fade-left" data-aos-duration="800">{{ $a->about_title }}</h5>
                     <div class="space20"></div>
 
                     {!! $a->about !!}

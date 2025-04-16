@@ -48,11 +48,11 @@
 
     <div class="container">
         <div class="">
-            <a href="tel:+923001234567" class="floating-icon call">
+            <a href="tel:+917026600000" class="floating-icon call">
                 <i class="fas fa-phone-alt"></i>
             </a>
-            
-            <a href="https://wa.me/923001234567" target="_blank" class="floating-icon whatsapp">
+
+            <a href="https://wa.me/917026600000" target="_blank" class="floating-icon whatsapp">
                 <i class="fab fa-whatsapp"></i>
             </a>
         </div>

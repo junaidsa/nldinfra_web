@@ -26,10 +26,10 @@
   <section class="py-5 bg-light mt-5">
     <div class="container">
       <div class="text-center mb-5">
-        <h5 class="fw-bold mb-4">How It <span class="text-success">Works?</span></h5>
+        <h5 class="fw-bold mb-4">🏡 How It <span class="text-success">Works?</span></h5>
         <p class="text-muted">
-          Our Platform Provides You The Best Opportunities<br>
-          To Find The Best Property Nearby. You Can Make This:
+            Your Dream Property Is Just a Few Steps Away with NLD Developers <br>
+            We make it simple, smart, and seamless to find the perfect property near you. Here's how:
         </p>
       </div>
       <div class="row">

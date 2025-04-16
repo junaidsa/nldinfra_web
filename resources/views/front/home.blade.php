@@ -32,10 +32,10 @@
           To Find The Best Property Nearby. You Can Make This:
         </p>
       </div>
-      <div class="row justify-content-center text-center">
+      <div class="row">
         <!-- Card 1 -->
         <div class="col-md-4 mb-4">
-          <div class="card shadow border border-success rounded-4 h-100">
+          <div class="card shadow border border-success rounded-4 h-100 justify-content-center text-center">
             <div class="card-body">
               <div class="mb-3 " >
                 <svg xmlns="http://www.w3.org/2000/svg" class="bg-light rounded-circle p-2" width="60" height="60" viewBox="0 0 60 60" fill="none">
@@ -44,9 +44,9 @@
                     <path d="M50 50L42.5 42.5" stroke="#222222" stroke-width="3" stroke-linecap="round"/>
                   </svg>
               </div>
-              <h6 class="fw-bold mb-3">Search Property</h6>
+              <h6 class="fw-bold mb-3">Search with Ease</h6>
               <p class="text-muted small">
-                Physical space is often considered in three linear dimensions, although modern
+                Use our powerful search tools to explore properties based on your location, budget, and preferences. Whether you’re looking for a cozy apartment or a spacious villa, we’ve got options that suit every lifestyle.
               </p>
             </div>
           </div>
@@ -54,7 +54,7 @@
 
         <!-- Card 2 -->
         <div class="col-md-4 mb-4">
-            <div class="card shadow border-0 rounded-4 h-100 card-center">
+            <div class="card shadow border-0 rounded-4 h-100 card-center justify-content-center text-center">
               <div class="card-body">
                 <div class="mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" class="bg-light rounded-circle p-2" width="70" height="70" viewBox="0 0 85 85" fill="none">
@@ -70,9 +70,9 @@
                         </defs>
                       </svg>
                 </div>
-                <h6 class="fw-bold mb-3">Instant Valuation</h6>
+                <h6 class="fw-bold mb-3">Discover Verified Listings</h6>
                 <p class="text-muted small">
-                  Physical space is often considered in three linear dimensions, although modern
+                    All our property listings are verified and up-to-date. We work closely with trusted developers and property owners to ensure you get only genuine opportunities—no surprises, no hidden fees
                 </p>
               </div>
             </div>
@@ -80,7 +80,7 @@
 
         <!-- Card 3 -->
         <div class="col-md-4 mb-4">
-          <div class="card shadow  border-0 rounded-4 h-100">
+          <div class="card shadow  border-0 rounded-4 h-100 justify-content-center text-center">
             <div class="card-body">
               <div class="mb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="bg-light rounded-circle p-2" width="60" height="60" viewBox="0 0 60 60" fill="none">
@@ -89,9 +89,26 @@
                     <path d="M50 50L42.5 42.5" stroke="#222222" stroke-width="3" stroke-linecap="round"/>
                     </svg>
               </div>
-              <h6 class="fw-bold mb-3">Track Property</h6>
+              <h6 class="fw-bold mb-3">Connect Instantly</h6>
               <p class="text-muted small">
-                Physical space is often considered in three linear dimensions, although modern
+                Found something you like? Contact property owners or developers directly through our platform. Schedule visits, request more info, or start the buying/renting process—right from your screen
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow  border-0 rounded-4 h-100 justify-content-center text-center">
+            <div class="card-body">
+              <div class="mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bg-light rounded-circle p-2" width="60" height="60" viewBox="0 0 60 60" fill="none">
+                    <path d="M27.5 42.5C35.7843 42.5 42.5 35.7843 42.5 27.5C42.5 19.2157 35.7843 12.5 27.5 12.5C19.2157 12.5 12.5 19.2157 12.5 27.5C12.5 35.7843 19.2157 42.5 27.5 42.5Z" fill="#42A15B" stroke="#222222" stroke-width="3"/>
+                    <path d="M27.5 20C26.515 20 25.5397 20.194 24.6299 20.5709C23.7199 20.9478 22.8932 21.5003 22.1967 22.1967C21.5003 22.8932 20.9478 23.7199 20.5709 24.6299C20.194 25.5397 20 26.515 20 27.5" stroke="#222222" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M50 50L42.5 42.5" stroke="#222222" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+              </div>
+              <h6 class="fw-bold mb-3">Expert Support, Always Available</h6>
+              <p class="text-muted small">
+                Need help choosing the right property or understanding legal procedures? Our experienced team is here to guide you every step of the way.
               </p>
             </div>
           </div>

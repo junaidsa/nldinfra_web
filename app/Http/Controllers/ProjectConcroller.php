@@ -45,7 +45,7 @@ class ProjectConcroller extends Controller
                 'discripation' => $request->discripation,
             ]);
 
-            return redirect()->route('project.create')->with('success', 'Project added successfully.');
+            return redirect()->route('project.index')->with('success', 'Project added successfully.');
         } else {
             return redirect()->back()->withErrors($validated)->withInput();
         }
@@ -92,6 +92,17 @@ class ProjectConcroller extends Controller
         $project->save();
 
         return redirect()->route('project.index')->with('success', 'Project updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $project = Projects::find($id);
+        if ($project) {
+            $project->delete();
+            return response()->json(['success' => 'Project deleted successfully.']);
+        } else {
+            return response()->json(['error' => 'Project not found.'], 404);
+        }
     }
 
     public function featuredUpdate(Request $request)

@@ -81,7 +81,7 @@
                 if (result.value) {
                     // Make DELETE request via AJAX
                     $.ajax({
-                        url: "{{ url('/products') }}/" + id,
+                        url: "{{ url('/admin/project/destroy') }}/" + id,
                         type: 'DELETE',
                         data: {
                             "_token": "{{ csrf_token() }}", // Ensure you pass the CSRF token
@@ -90,7 +90,7 @@
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Deleted!',
-                                text: 'Product has been deleted.',
+                                text: 'Project has been deleted.',
                                 timer: 1500
                             }).then(function() {
                                 location.reload();
@@ -100,7 +100,7 @@
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Error',
-                                text: 'An error occurred while deleting the product.',
+                                text: 'An error occurred while deleting the Project.',
                             });
                         }
                     });

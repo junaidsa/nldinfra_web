@@ -30,12 +30,16 @@ Route::delete('/blog/delete/{id}', [BlogController::class, 'Blogdestroy'])->name
 Route::get('/home',[Homecontroller::class,'index'])->name('dashboard');
 Route::get('admin/project/create',[ProjectConcroller::class,'create'])->name('project.create');
 Route::post('admin/project/store',[ProjectConcroller::class,'store'])->name('project.store');
+Route::delete('admin/project/destroy/{id}',[ProjectConcroller::class,'destroy'])->name('project.destroy');
 Route::get('admin/project/gallery/{id}',[ProjectConcroller::class,'gallery'])->name('project.gallery');
 Route::get('admin/project/amenitles/{id}',[ProjectConcroller::class,'amenitles'])->name('project.amenitles');
 Route::get('admin/project/{id}',[ProjectConcroller::class,'edit'])->name('project.edit');
 Route::post('admin/project/edit/{id}', [ProjectConcroller::class, 'update'])->name('project.update');
 Route::post('/admin/testimonials/store',[TestimonialController::class,'store'])->name('testimonials.store');
 Route::get('admin/testimonials/create',[TestimonialController::class,'create'])->name('testimonial.create');
+Route::get('admin/testimonials/edit/{id}',[TestimonialController::class,'edit'])->name('testimonial.edit');
+Route::post('admin/testimonials/update/{id}',[TestimonialController::class,'update'])->name('testimonial.update');
+Route::delete('admin/testimonials/destroy/{id}',[TestimonialController::class,'destroy'])->name('testimonial.destroy');
 Route::get('admin/testimonials',[TestimonialController::class,'index'])->name('testimonial.index');
 Route::get('admin/testimonial',[TestimonialController::class,'index'])->name('testimonial.index');
 Route::get('admin/about',[Homecontroller::class,'create_about'])->name('admin.about');

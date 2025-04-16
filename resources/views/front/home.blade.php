@@ -16,6 +16,15 @@
                 <div class="img1">
                     <img src="{{ asset('public') }}/front-assets/img/Presentation 1_20250326_212445_0000_page-0020.jpg">
                 </div>
+                <div class="img1">
+                    <img src="{{ asset('public') }}/ilovepdf/Presentation 1_20250326_212445_0000_page-0004.jpg">
+                </div>
+                <div class="img1">
+                    <img src="{{ asset('public') }}/ilovepdf/Presentation 1_20250326_212445_0000_page-0005.jpg">
+                </div>
+                <div class="img1">
+                    <img src="{{ asset('public') }}/ilovepdf/Presentation 1_20250326_212445_0000_page-0006.jpg">
+                </div>
             </div>
         </div>
     {{-- </div> --}}

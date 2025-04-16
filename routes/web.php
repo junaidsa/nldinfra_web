@@ -28,8 +28,8 @@ Route::get('/blog/edit/{id}',[BlogController::class,'blogEdit'])->name('blog.edi
 Route::post('/blog/update/{id}',[BlogController::class,'blogUpdate'])->name('blog.update');
 Route::delete('/blog/delete/{id}', [BlogController::class, 'Blogdestroy'])->name('blog.destroy');
 Route::get('/home',[Homecontroller::class,'index'])->name('dashboard');
-Route::get('/project/create',[ProjectConcroller::class,'create'])->name('project.create');
-Route::post('/project/store',[ProjectConcroller::class,'store'])->name('project.store');
+Route::get('admin/project/create',[ProjectConcroller::class,'create'])->name('project.create');
+Route::post('admin/project/store',[ProjectConcroller::class,'store'])->name('project.store');
 Route::get('admin/project/gallery/{id}',[ProjectConcroller::class,'gallery'])->name('project.gallery');
 Route::get('admin/project/amenitles/{id}',[ProjectConcroller::class,'amenitles'])->name('project.amenitles');
 Route::get('admin/project/{id}',[ProjectConcroller::class,'edit'])->name('project.edit');

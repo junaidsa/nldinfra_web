@@ -8,7 +8,7 @@
                     <div class="card">
                       <div class="card-body">
                         <div class="row">
-                            <form action="{{url('project/store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{url('admin/project/store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                           <div class="col-lg-12">
                             <!-- 1. Delivery Address -->

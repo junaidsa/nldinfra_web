@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h5>Products List</h5>
-                <div class="btn-container"><a href="{{ url('project/create') }}" class="btn btn-success">Create Project</a>
+                <div class="btn-container"><a href="{{ url('admin/project/create') }}" class="btn btn-success">Create Project</a>
                 </div>
             </div>
 

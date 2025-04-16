@@ -40,14 +40,14 @@
         </li>
 
         <li
-            class="menu-item {{ Request::is('projects') || Request::is('project/edit/*') || Request::is('project/create') ? 'open' : '' }}">
+            class="menu-item {{ Request::is('projects') || Request::is('project/edit/*') || Request::is('admin/project/create') ? 'open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
                 <div data-i18n="Project">Project</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::is('project/create') ? 'active' : '' }}">
-                    <a href="{{ url('project/create') }}" class="menu-link">
+                <li class="menu-item {{ Request::is('admin/project/create') ? 'active' : '' }}">
+                    <a href="{{ url('admin/project/create') }}" class="menu-link">
                         <div data-i18n="Create">Create</div>
                     </a>
                 </li>

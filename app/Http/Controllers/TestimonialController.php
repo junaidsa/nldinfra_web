@@ -37,7 +37,7 @@ public function store(Request $request)
             'avatar' => $file,
             'message' => $request->message,
         ]);
-        return redirect()->route('project.create')->with('success', 'Testimonials added successfully.');
+        return redirect()->route('testimonial.index')->with('success', 'Testimonials added successfully.');
     } else {
         return redirect()->back()->withErrors($validated)->withInput();
     }

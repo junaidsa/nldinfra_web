@@ -4,16 +4,15 @@
     data-assets-path="{{ asset('public') }}/assets/" data-template="vertical-menu-template">
 
 <head>
-    <meta name="viewport"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta charset="utf-8" />
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.27.3/ui/trumbowyg.min.css" integrity="sha512-Fm8kRNVGCBZn0sPmwJbVXlqfJmPC13zRsMElZenX6v721g/H7OukJd8XzDEBRQ2FSATK8xNF9UYvzsCtUpfeJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>NLDINFRA</title>
 
     <meta name="description" content="" />
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('public') }}/assets/svg/icons/Icon 512 x 512.png" />
 
@@ -21,19 +20,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
     <!-- Icons -->
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/fonts/fontawesome.css" />
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/fonts/tabler-icons.css" />
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/fonts/flag-icons.css" />
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/libs/tagify/tagify.css" />
-    <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/css/rtl/core.css"
-        class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/css/rtl/theme-default.css"
-        class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('public') }}/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
@@ -47,8 +42,7 @@
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/libs/sweetalert2/sweetalert2.css" />
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/libs/select2/select2.css" />
-    <link rel="stylesheet"
-        href="{{ asset('public') }}/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.css" />
+    <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.css" />
     <link rel="stylesheet" href="{{ asset('public') }}/assets/vendor/css/pages/app-chat.css" />
     @yield('css')
     <!-- Page CSS -->
@@ -76,9 +70,9 @@
 
     <div class="container">
         <div class="">
-            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            {{-- <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-            </svg>
+            </svg> --}}
         </div>
     </div>
 
